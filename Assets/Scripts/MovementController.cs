@@ -8,12 +8,8 @@ public class MovementController : MonoBehaviour
     public float speed;
     public float jumpForce = 70;
 
-
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
@@ -22,23 +18,20 @@ public class MovementController : MonoBehaviour
         Jump();
     }
 
-
     void MoveLeftAndRight()
     {
         if (Input.GetKey(KeyCode.RightArrow) == true)
         {
-            theRB.velocity = Vector2.right * speed;
+            theRB.linearVelocity = Vector2.right * speed;
         }
         else if (Input.GetKey(KeyCode.LeftArrow) == true)
         {
-            theRB.velocity = Vector2.left * speed;
+            theRB.linearVelocity = Vector2.left * speed;
         }
         else
         {
-            theRB.velocity = new Vector2(0, theRB.velocity.y);
+            theRB.linearVelocity = new Vector2(0, theRB.linearVelocity.y);
         }
-
-
     }
 
     void Jump()
@@ -48,6 +41,4 @@ public class MovementController : MonoBehaviour
             theRB.AddForce(Vector2.up * jumpForce);
         }
     }
-
-   
 }
